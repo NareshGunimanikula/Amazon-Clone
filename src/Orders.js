@@ -18,18 +18,18 @@ function Orders() {
           setOrders(
             snapshot.docs.map((doc) => ({
               id: doc.id,
-              date: doc.data(),
+              data: doc.data(),
             }))
           )
         );
     } else {
       setOrders([]);
     }
-  }, []);
+  }, [user]);
   return (
     <div className="orders">
       <h1>Your Orders</h1>
-      <div className="orders_order">
+      <div className="orders__order">
         {orders?.map((order) => (
           <Order order={order} />
         ))}
